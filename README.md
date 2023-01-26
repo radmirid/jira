@@ -1,6 +1,6 @@
 .env file
 
-`
+```
 TELEGRAM_TOKEN=telegramToken
 
 TELEGRAM_CHAT_ID=telegramChatId
@@ -16,7 +16,7 @@ JIRA_PROJECT_KEY=jira_project_key
 DB_URL=postgres://username:password@host:port/dbname
 
 DB_MIGRATIONS_DIR=migrations
-`
+```
 
 ### Usage
 
