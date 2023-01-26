@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  jira-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TELEGRAM_TOKEN=your_telegram_token
+      - TELEGRAM_CHAT_ID=your_telegram_chat_id
+      - JIRA_USERNAME=your_jira_username
+      - JIRA_API_TOKEN=your_jira_api_token
+      - JIRA_ENDPOINT=https://your-jira-instance.atlassian.net
+      - JIRA_PROJECT_KEY=your_jira_project_key
+      - DB_URL=postgres://username:password@host:port/dbname
+      - DB_MIGRATIONS_DIR=migrations
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dbname
+    ports:
+      - "5432:5432"
